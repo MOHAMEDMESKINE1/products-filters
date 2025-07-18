@@ -38,7 +38,7 @@ watch(products, () => {
           <span v-if="pending"> Loading...</span>
 
           <List v-else class="" v-for="(product, index) in filteredProducts" :key="index" 
-          :data="product" @click="console.log(product)"/>
+          :product="product" @click="console.log(product)"/>
        </div>
        </div>
   </div>
