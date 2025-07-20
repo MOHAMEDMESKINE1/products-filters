@@ -11,7 +11,20 @@
           class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
         />
       </div>
+      <!-- category -->
+      <label class="block text-sm font-semibold text-gray-700 mb-2">Categories</label>
+       <div v-for="(cat, index) in props.categories" :key="index" class="mb-2">
+        <input
+          type="radio"
+          :id="cat"
+          name="category"
+          :value="cat"
+          v-model="localCategory"
 
+        />
+        <label :for="cat" class="ms-2">{{ cat }}</label>
+      
+       </div>
       <!-- Price Range Inputs -->
       <div>
         <label class="block text-sm font-semibold text-gray-700 mb-2">Price Range (MAD)</label>
@@ -27,6 +40,7 @@
             type="number"
             :value="props.maxPrice"
             @input="$emit('update:maxPrice', $event.target.value || null)"
+
             placeholder="Max"
             class="w-1/2 border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
@@ -50,13 +64,14 @@
         </div>
     </div>
       <!-- Apply Filters Button -->
-
+       
       <div>
 
         <button @click="
           $emit('update:minPrice', 0);
           $emit('update:maxPrice', 0);
           $emit('update:search', '')
+          $emit('update:category', null)
         " class="px-3 py-1.5 w-full text-sm bg-red-100 hover:bg-red-500 hover:text-white rounded-lg">
           Reset Filters
         </button>
@@ -69,10 +84,17 @@
 const props =  defineProps({
   search: String,
   minPrice: Number,
-  maxPrice: Number
+  maxPrice: Number,
+  category:String,
+  categories : Object
 
 })
-const emit = defineEmits(['update:search', 'update:minPrice', 'update:maxPrice'])
+
+const emit = defineEmits(['update:search', 'update:minPrice', 'update:maxPrice' ,'update:category'])
+const localCategory = computed({
+  get: () => props.category,
+  set: (val) => emit('update:category', val)
+})
 </script>
 
 <style lang="scss" scoped>
