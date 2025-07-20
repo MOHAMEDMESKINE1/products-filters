@@ -2,10 +2,6 @@
 <script setup lang="ts">
  
 const{product} =defineProps(['product'])
-const doSomethingOnLoad = () => {
-  alert('loaded image ...')
-
-}
 </script>
 
 <template>

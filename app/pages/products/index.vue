@@ -1,14 +1,15 @@
 <script setup lang="ts">
 const { productsList, categories, filters, filteredProducts } = useFilters();
 
-const {
-  data: products,
-  pending,
-  error,
-} = await useFetch("https://fakestoreapi.com/products", {
-  key: "products",
-  lazy: true,
-});
+// const {
+//   data: products,
+//   pending,
+//   error,
+// } = await useFetch("https://fakestoreapi.com/products", {
+//   key: "products",
+//   lazy: true,
+// });
+const { pending,error, data: products } = useAsyncData('products-1', () => $fetch('https://fakestoreapi.com/products'), { immediate: true })
 
 watch(
   products,
