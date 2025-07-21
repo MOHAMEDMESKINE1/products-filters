@@ -2,7 +2,6 @@
 definePageMeta({
   layout: false,
 });
-
 const route = useRoute();
 const {
   pending,
@@ -16,10 +15,7 @@ useProductSeo(product);
 </script>
 
 <template>
-  <header class="bg-white flex justify-between text-xl p-3">
-    <div class="">Fake Store Api</div>
-    <NuxtLink to="/products"> products </NuxtLink>
-  </header>
+ 
   <span v-if="error" class="text-red-500 flex items-center justify-center">Error Occured X</span>
   <div v-if="pending" class="fixed inset-0 flex items-center justify-center bg-white/50 z-50">
     <span
@@ -58,16 +54,20 @@ useProductSeo(product);
     <!-- rating -->
     <div class="mt-auto flex items-center justify-between">
       <p class="text-red-600 font-bold text-lg">
-        rating : {{ product?.rating.rate }} *
+        rating : {{ product?.rating.rate }} 
+        <CustomIcon name="lucide:star" />
       </p>
       <p class="text-green-600 font-bold text-lg">
         stock : {{ product?.rating.count }}
+        <CustomIcon name="lucide:box" />
+
       </p>
     </div>
     <!-- Price & CTA -->
     <div class="mt-auto flex items-center justify-end">
       <p class="text-blue-600 font-bold text-lg">
-        Price : {{ product?.price }} MAD
+        Price : {{ product?.price }} 
+         <CustomIcon name="money" />
       </p>
     </div>
   </div>

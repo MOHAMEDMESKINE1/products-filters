@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxt/image', '@nuxt/icon'],
   imports: {
     dirs: ['composables','stores','utils']
   },
@@ -69,6 +69,18 @@ export default defineNuxtConfig({
         'latin',
       ]
     },
+  },
+   icon: {
+    mode: 'css',
+    aliases: {
+      'money':'lucide:circle-dollar-sign'
+    },
+    cssLayer: 'base',
+      serverBundle: {
+        collections: ['lucide'] // <!--- in case u installed all icons you may need to specifiy which icons you want to include
+      },
+      componentName: 'CustomIcon'
+
   }
 
   

@@ -9,6 +9,7 @@ const { productsList, categories, filters, filteredProducts } = useFilters();
 //   key: "products",
 //   lazy: true,
 // });
+
 const { pending,error, data: products } = useAsyncData('products-1', () => $fetch('https://fakestoreapi.com/products'), { immediate: true })
 
 watch(
