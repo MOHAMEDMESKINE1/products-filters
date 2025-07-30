@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-300">
+  <div class="bg-gray-50">
     <!-- header -->
     <header class="bg-white flex justify-between items-center text-xl p-3">
       <!-- Logo on the left -->

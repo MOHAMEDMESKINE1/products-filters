@@ -36,7 +36,7 @@ const removeFromCart = async (productId: number) => {
     })
 
     const result = await res.json()
-    console.log('Deleted:', result)
+   
  
   } catch (error) {
     console.error('Failed to delete product from cart:', error)
@@ -53,11 +53,12 @@ const removeFromCart = async (productId: number) => {
     <table v-else class="min-w-full bg-white rounded shadow">
       <thead class="bg-gray-100 text-left text-sm uppercase font-medium text-gray-600">
         <tr>
+          <th class="p-3">Image</th>
           <th class="p-3">Title</th>
           <th class="p-3">Description</th>
           <th class="p-3">Price</th>
           <th class="p-3">Qty</th>
-          <th class="p-3">Total</th>
+          <th class="">Action</th>
         </tr>
       </thead>
       <tbody>

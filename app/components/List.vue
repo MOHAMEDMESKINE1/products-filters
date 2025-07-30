@@ -15,7 +15,6 @@ const addToCart = async ()=>{
       ],
     }
   })
-  console.log(res);
 }
 </script>
 
